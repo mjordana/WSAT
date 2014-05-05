@@ -66,7 +66,6 @@ class Wsat(object):
         for i, clause in enumerate(self.clauses):
             if Wsat.__clause_sat(clause):
                 unsat_clauses.add(i)
-
         # the algorithm
         rand = self.random_gen
         model = self.model
@@ -84,3 +83,4 @@ class Wsat(object):
                     (sat, lit) =\
                         max(self.__num_sat_by_filp, key=lambda x: x[0])
                     Wsat.flip(lit, self.model)
+        return False
