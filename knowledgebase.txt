@@ -973,3 +973,9 @@
 !BloodRelated(Jill,Tom) !AncestorOf(Tom,Tom) BloodRelated(Jill,Tom) 
 !BloodRelated(Mary,Tom) !AncestorOf(Tom,Tom) BloodRelated(Mary,Tom) 
 !BloodRelated(Tom,Tom) !AncestorOf(Tom,Tom) BloodRelated(Tom,Tom) 
+ParentOf(Jill,Frank)
+ParentOf(Bob,Mary)
+ParentOf(Tom,Bob)
+ParentOf(Tom,Jill)
+Siblings(Jill,Bob)
+
