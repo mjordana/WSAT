@@ -24,15 +24,14 @@ class Wsat(object):
     def __flip(lit, model):
         """ flip a lit in a model
         """
-        model[lit] = False if model[lit] else True
+        lit_idx = abs(lit) - 1
+        model[lit_idx] = False if model[lit_idx] else True
 
     @staticmethod
     def __clause_sat(clause, model):
         sat = False
         for lit in clause:
-            cond1 = lit > 0 and model[lit]
-            cond2 = lit < 0 and not model[-lit]
-            if cond1 or cond2:
+            if (lit > 0) == model[abs(lit)-1]:
                 sat = True
                 break
         return sat
@@ -80,7 +79,7 @@ class Wsat(object):
                 clause = self.clauses[idx]
                 if rand.random() < self.p:  # flip an random lit
                     lit = rand.choice(clause)
-                    Wsat.__flip(abs(lit), model)
+                    Wsat.__flip(lit, model)
                 else:  # flip a lit in the clause s.t. # of sat is maximized.
                     (sat, lit) =\
                         max(self.__num_sat_by_filp(clause), key=lambda x: x[0])
