@@ -6,6 +6,8 @@ def parse_DIMACS_cnf(filename):
 
 
 def parse_cnf(filename):
+    """ Return the number of literals and the clauses parsed from file
+    """
     clauses = []
     counter = 1
     var_map = dict()
