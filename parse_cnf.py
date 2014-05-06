@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 
 
-def parse_DIMACS_cnf(filename):
-    print "to be implemented"
-
-
 def parse_cnf(filename):
     """ Return the number of literals and the clauses parsed from file
     """
@@ -12,7 +8,7 @@ def parse_cnf(filename):
     counter = 1
     var_map = dict()
     for line in open(filename):
-        tokens = line.split(" ")
+        tokens = line.rstrip().split(" ")
         clause = []
         for token in tokens:
             var_str = token[1:] if token.startswith('!') else token
@@ -25,4 +21,4 @@ def parse_cnf(filename):
             var = -var if token.startswith('!') else var
             clause.append(var)
         clauses.append(clause)
-    return (counter, clauses)
+    return (counter, clauses, var_map)
