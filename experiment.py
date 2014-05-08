@@ -4,7 +4,7 @@ from parse_cnf import parse_cnf
 from infer import infer
 import os
 
-REPEAT = 1
+REPEAT = 10
 
 
 def case(query, var_map, problem):
@@ -20,7 +20,6 @@ def case(query, var_map, problem):
         query[1:], problem.p, problem.max_flips, success, fail)
 
 
-# default experiment
 def default_exp(queries, var_map, problem):
     for query in queries:
         case(query, var_map, problem)
